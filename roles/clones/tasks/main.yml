@@ -1,0 +1,13 @@
+---
+
+- name: Create "workspace" directory
+  file: path=/home/vagrant/projects state=directory
+  become_user: vagrant
+
+- name: Clone node repos
+  when: env == 'nodejs'
+  git: 
+    repo: https://github.com/richardsbrandao/node.git
+    dest: /home/vagrant/projects
+    update: no
+  become_user: vagrant

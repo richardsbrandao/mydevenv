@@ -1,0 +1,4 @@
+---
+
+- name: Install NODE JS
+  script: ./install_node.sh

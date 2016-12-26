@@ -1,0 +1,10 @@
+---
+
+- name: create docker-compose workspace
+  file: path=/home/vagrant/services state=directory
+  become_user: vagrant
+
+- name: add docker-compose services to workspace
+  template: 
+    src: docker-compose.yml.conf.j2
+    dest: /home/vagrant/services/docker-compose.yml

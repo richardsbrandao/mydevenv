@@ -1,0 +1,27 @@
+---
+
+- name: Default configurations
+  hosts: all
+  become: true
+  become_user: root
+  roles:
+    - git
+  
+- name: NODEJS env configs
+  hosts: node
+  become: true
+  become_user: root
+  vars:
+    env: nodejs
+    node_version: 6.1.0
+  roles:
+    - nodejs
+    - clones
+
+- name: SERVICES env configs
+  hosts: services
+  become: true
+  become_user: root
+  roles:
+    - docker
+    - docker-compose

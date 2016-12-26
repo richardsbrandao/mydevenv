@@ -1,0 +1,6 @@
+---
+
+- name: copy shortcuts to vm
+  template: 
+    src: gitconfig.conf.j2
+    dest: /home/vagrant/.gitconfig
