@@ -1,0 +1,21 @@
+Teste Mongoose imagem docker
+Ruby
+	RVM
+		Ruby 2.3
+	Clone
+	Rubymine
+	Configurar Workspace
+Java
+	Java 7
+	Java 8
+	SDK
+		Gradle 2.9
+		Gradle 3.0
+		Gradle 1.1
+		Maven 3
+	eclipse
+	Configurar Workspace
+Golang
+	Instalação
+	Configurar Workspace
+
