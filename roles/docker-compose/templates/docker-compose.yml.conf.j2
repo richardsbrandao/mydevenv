@@ -1,1 +1,24 @@
-- version: 2
+version: '2'
+services:
+  mysql:
+    image: mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: herotrip
+      MYSQL_DATABASE: 'superman,thor'
+    ports:
+      - "3307:3306"
+  cassandra:
+    image: poklet/cassandra
+    command: start
+  rabbit:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: herotrip
+      RABBITMQ_DEFAULT_PASS: herotrip
+    hostname: rabbit-herotrip
+  mongo:
+    image: mongo
+    ports: 
+      - "27017:27017"
