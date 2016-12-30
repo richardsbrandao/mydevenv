@@ -10,6 +10,8 @@ Vagrant.configure(2) do |config|
   	node.vm.network "forwarded_port", guest: 9000, host: 9000
   	node.vm.network "private_network", ip: "192.168.33.20"
 
+    node.vm.synced_folder "/home/richard/vagrant_sync/node", "/home/vagrant/projects"
+
   	node.vm.provision :ansible do |ansible|
   	  ansible.playbook       = './main.yml'
   	end
@@ -22,6 +24,8 @@ Vagrant.configure(2) do |config|
   	services.vm.network "forwarded_port", guest: 27017, host: 27017
   	services.vm.network "private_network", ip: "192.168.33.21"
 
+    services.vm.synced_folder "/home/richard/vagrant_sync/services", "/home/vagrant/services"
+
   	services.vm.provision :ansible do |ansible|
   	  ansible.playbook       = './main.yml'
   	end
@@ -29,5 +33,4 @@ Vagrant.configure(2) do |config|
   
 
   # SyncFolder config.vm.synced_folder "sites/", "/var/www"
-  # Multi Machine
 end
