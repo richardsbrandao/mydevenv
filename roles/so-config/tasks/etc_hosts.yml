@@ -1,0 +1,13 @@
+---
+
+- name: Configure services entry
+  lineinfile:
+    dest: /etc/hosts
+    regexp: ^192.168.33.21
+    line: 192.168.33.21 services
+
+- name: Configure node entry
+  lineinfile:
+    dest: /etc/hosts
+    regexp: ^192.168.33.20
+    line: 192.168.33.20 node

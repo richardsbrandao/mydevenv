@@ -4,8 +4,11 @@
   hosts: all
   become: true
   become_user: root
+  vars:
+    workspace_dir: /home/vagrant/projects
   roles:
     - git
+    - so-config
   
 - name: NODEJS env configs
   hosts: node
