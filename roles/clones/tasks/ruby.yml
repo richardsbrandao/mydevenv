@@ -1,0 +1,12 @@
+---
+
+- name: Clone node repos
+  when: env == 'ruby'
+  become_user: vagrant
+  git: 
+    repo: https://github.com/richardsbrandao/{{item}}.git
+    dest: /home/vagrant/projects/{{item}}
+    update: no
+  with_items:
+    - ruby
+    - casamento

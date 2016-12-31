@@ -2,4 +2,3 @@
 
 - include: bashrc.yml
 - include: etc_hosts.yml
-

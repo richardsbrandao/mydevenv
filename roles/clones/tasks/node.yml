@@ -1,0 +1,9 @@
+---
+
+- name: Clone node repos
+  when: env == 'nodejs'
+  git: 
+    repo: https://github.com/richardsbrandao/node.git
+    dest: /home/vagrant/projects
+    update: no
+  become_user: vagrant

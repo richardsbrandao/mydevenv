@@ -1,0 +1,5 @@
+---
+
+- name: Create "workspace" directory
+  file: path=/home/vagrant/projects state=directory
+  become_user: vagrant

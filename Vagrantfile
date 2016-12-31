@@ -16,6 +16,20 @@ Vagrant.configure(2) do |config|
   	  ansible.playbook       = './main.yml'
   	end
   end
+
+  config.vm.define "ruby" do |ruby|
+    ruby.vm.box = "ubuntu/trusty64"
+    
+    # Apps
+    ruby.vm.network "forwarded_port", guest: 3000, host: 3000
+    ruby.vm.network "private_network", ip: "192.168.33.23"
+
+    ruby.vm.synced_folder "/home/richard/vagrant_sync/ruby", "/home/vagrant/projects"
+
+    ruby.vm.provision :ansible do |ansible|
+      ansible.playbook       = './main.yml'
+    end
+  end
   
   config.vm.define "services" do |services|
   	services.vm.box = "ubuntu/trusty64"
