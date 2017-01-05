@@ -1,0 +1,9 @@
+---
+
+- name: Apt-Get Update
+  apt:
+    update_cache: yes
+    
+- name: Apt-Get Upgrade
+  apt:
+    upgrade: dist

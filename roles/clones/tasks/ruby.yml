@@ -2,10 +2,10 @@
 
 - name: Clone node repos
   when: env == 'ruby'
-  become_user: vagrant
+  become_user: "{{default_user}}"
   git: 
     repo: https://github.com/richardsbrandao/{{item}}.git
-    dest: /home/vagrant/projects/{{item}}
+    dest: "{{workspace_dir}}/{{item}}"
     update: no
   with_items:
     - ruby

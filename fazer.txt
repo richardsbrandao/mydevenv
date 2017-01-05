@@ -1,10 +1,8 @@
-Teste Mongoose imagem docker
-Ruby
-	RVM
-		Ruby 2.3
-	Clone
-	Rubymine
-	Configurar Workspace
+Testar Ruby projects
+Vars Refactorings
+Melhorar instalação Node
+
+
 Java
 	Java 7
 	Java 8

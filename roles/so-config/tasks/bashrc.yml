@@ -2,6 +2,6 @@
  
 - name: Declare workspace shortcut in bashrc
   lineinfile:
-    dest: /home/vagrant/.bashrc
+    dest: "{{ home_dir }}/.bashrc"
     regexp: ^export WORKSPACE=
     line: export WORKSPACE={{workspace_dir}}

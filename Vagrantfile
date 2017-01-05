@@ -44,7 +44,4 @@ Vagrant.configure(2) do |config|
   	  ansible.playbook       = './main.yml'
   	end
   end
-  
-
-  # SyncFolder config.vm.synced_folder "sites/", "/var/www"
 end

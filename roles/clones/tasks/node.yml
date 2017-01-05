@@ -3,7 +3,9 @@
 - name: Clone node repos
   when: env == 'nodejs'
   git: 
-    repo: https://github.com/richardsbrandao/node.git
-    dest: /home/vagrant/projects
+    repo: https://github.com/richardsbrandao/{{item}}.git
+    dest: "{{workspace_dir}}/{{item}}"
     update: no
-  become_user: vagrant
+  become_user: "{{default_user}}"
+  with_items:
+    - node

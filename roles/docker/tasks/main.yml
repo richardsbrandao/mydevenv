@@ -16,6 +16,6 @@
 
 - name: add vagrant to docker group
   user:
-    name: vagrant
+    name: "{{default_user}}"
     groups: docker
     append: yes

@@ -6,9 +6,11 @@
   become_user: root
   vars:
     workspace_dir: /home/vagrant/projects
+    home_dir: /home/vagrant
+    default_user: vagrant
   roles:
-    - git
     - so-config
+    - git
   
 - name: NODEJS env configs
   hosts: node
@@ -17,6 +19,10 @@
   vars:
     env: nodejs
     node_version: 6.1.0
+    nodejs_version: 6.x
+    workspace_dir: /home/vagrant/projects
+    home_dir: /home/vagrant
+    default_user: vagrant
   roles:
     - hostname
     - nodejs
@@ -28,6 +34,7 @@
   become_user: root
   vars:
     env: services
+    workspace_dir: /home/vagrant/services
   roles:
     - hostname
     - docker
@@ -42,4 +49,5 @@
   roles:
     - hostname
     - rvm
+    - nodejs
     - clones
