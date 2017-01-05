@@ -2,5 +2,4 @@ workspace_dir: /home/vagrant/projects
 home_dir: /home/vagrant
 default_user: vagrant
 
-node_version: 6.1.0
 nodejs_version: 6.x
