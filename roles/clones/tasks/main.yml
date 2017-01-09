@@ -3,3 +3,4 @@
 - include: workspace.yml
 - include: node.yml
 - include: ruby.yml
+- include: java.yml

@@ -41,3 +41,15 @@
     - rvm
     - nodejs
     - clones
+
+- name: JAVA env configs
+  hosts: java
+  become: true
+  become_user: root
+  vars:
+    env: java
+  roles:
+    - hostname
+    - java
+    - sdk
+    - clones

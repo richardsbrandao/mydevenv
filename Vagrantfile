@@ -30,6 +30,20 @@ Vagrant.configure(2) do |config|
       ansible.playbook       = './main.yml'
     end
   end
+
+  config.vm.define "java" do |java|
+    java.vm.box = "ubuntu/trusty64"
+    
+    # Apps
+    java.vm.network "forwarded_port", guest: 8080, host: 8080
+    java.vm.network "private_network", ip: "192.168.33.22"
+
+    java.vm.synced_folder "/home/richard/vagrant_sync/java", "/home/vagrant/projects"
+
+    java.vm.provision :ansible do |ansible|
+      ansible.playbook       = './main.yml'
+    end
+  end
   
   config.vm.define "services" do |services|
   	services.vm.box = "ubuntu/trusty64"
