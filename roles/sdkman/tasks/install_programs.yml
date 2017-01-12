@@ -1,0 +1,17 @@
+---
+
+- name: Installing gradle
+  command: bash -lc "sdk install gradle 3.1"
+  become_user: vagrant
+
+- name: Installing gradle
+  command: bash -lc "sdk install gradle 2.9"
+  become_user: vagrant
+
+- name: Installing gradle
+  command: bash -lc "sdk install maven"
+  become_user: vagrant
+
+- name: Installing gradle
+  command: bash -lc "sdk install springboot"
+  become_user: vagrant

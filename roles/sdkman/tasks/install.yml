@@ -28,7 +28,3 @@
 - name: Add sdkman in .bashrc
   lineinfile: dest={{home_dir}}/.bashrc regexp="\/.sdkman/bin\/sdkman\-init\.sh" line='[[ -s "{{home_dir}}/.sdkman/bin/sdkman-init.sh" && ! $(which sdkman-init.sh) ]] && source "{{home_dir}}/.sdkman/bin/sdkman-init.sh"'
   become_user: vagrant
-
-- name: Installing gradle
-  command: bash -lc "sdk install gradle 3.1"
-  become_user: vagrant
