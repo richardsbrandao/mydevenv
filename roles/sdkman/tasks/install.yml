@@ -6,13 +6,14 @@
     - unzip
     - zip
 
-- name: Check if sdkman is installed
-  shell: test -d "{{home_dir}}/.sdkman" && echo "yes" || echo "no"
-  register: is_sdkman_installed
-  become_user: vagrant
+- name: Check if sdkman is already installed
+  stat: 
+    path: "{{home_dir}}/.sdkman"
+  register: sdkman_dir
+  become_user: "{{default_user}}"
 
 - name: Install SDKMAN!
-  when: is_sdkman_installed.stdout == "no"
+  when: sdkman_dir.stat.isdir is not defined
   become_user: "{{default_user}}"
   get_url:
     url: http://get.sdkman.io
@@ -21,10 +22,10 @@
     force_basic_auth: yes
 
 - name: Execute sdk installation
-  when: is_sdkman_installed.stdout == "no"
+  when: sdkman_dir.stat.isdir is not defined
   become_user: "{{default_user}}"
   shell: "{{home_dir}}/sdk_install.sh"
 
 - name: Add sdkman in .bashrc
   lineinfile: dest={{home_dir}}/.bashrc regexp="\/.sdkman/bin\/sdkman\-init\.sh" line='[[ -s "{{home_dir}}/.sdkman/bin/sdkman-init.sh" && ! $(which sdkman-init.sh) ]] && source "{{home_dir}}/.sdkman/bin/sdkman-init.sh"'
-  become_user: vagrant
+  become_user: "{{default_user}}"
