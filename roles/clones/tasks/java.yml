@@ -1,2 +1,11 @@
 ---
 
+- name: Clone java repos
+  when: env == 'java'
+  git: 
+    repo: https://github.com/richardsbrandao/{{item}}.git
+    dest: "{{workspace_dir}}/{{item}}"
+    update: no
+  become_user: "{{default_user}}"
+  with_items:
+    - java

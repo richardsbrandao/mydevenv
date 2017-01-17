@@ -40,6 +40,11 @@ Vagrant.configure(2) do |config|
 
     java.vm.synced_folder "/home/richard/vagrant_sync/java", "/home/vagrant/projects"
 
+    java.vm.provider "virtualbox" do |vb|
+      vb.gui = true
+      vb.memory = "8192"
+    end  
+
     java.vm.provision :ansible do |ansible|
       ansible.playbook       = './main.yml'
     end
