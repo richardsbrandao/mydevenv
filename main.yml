@@ -7,7 +7,6 @@
   roles:
     - so-config
     - git
-    - tools
   
 - name: NODEJS env configs
   hosts: node
@@ -55,3 +54,4 @@
     - sdkman
     - clones
     - xserver
+    - tools

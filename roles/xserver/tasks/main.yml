@@ -15,17 +15,3 @@
     dest: "/etc/X11/Xwrapper.config"
     regexp: ^allowed_users=
     line: allowed_users=anybody
-
-- name: Install eclipse
-  get_url:
-    url: http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/luna/SR2/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz
-    dest: "/opt/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz"
-    mode: 0755
-
-#- name: Unpack eclipse
-#  command: "cd /opt && tar -vzxf eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz && chown -R vagrant:vagrant eclipse"
-- name: Unpack
-  unarchive:
-    src: /opt/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz
-    dest: /opt
-    remote_src: True
