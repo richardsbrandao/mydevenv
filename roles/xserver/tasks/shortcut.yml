@@ -1,0 +1,7 @@
+---
+
+- name: Configure shortcut to startX Server
+  template: 
+    src: startXServer.conf.j2
+    dest: "/usr/bin/startXServer"
+    mode: 0755
