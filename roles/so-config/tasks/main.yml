@@ -3,3 +3,4 @@
 - include: update_packages.yml
 - include: bashrc.yml
 - include: etc_hosts.yml
+- include: timezone.yml

@@ -1,0 +1,5 @@
+---
+
+- name: Set timezone to Brazil
+  timezone: 
+    name: America/Sao_Paulo
