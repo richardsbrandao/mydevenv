@@ -1,15 +1,12 @@
 
-Unpack eclipse
 Modulo de tools (eclipse, rubymine, webstorm)
 Organizar xserver em 2 partes (tema e instalação)
-Criar atalho no path para startar xserver
 
 Ver como fazer Git com SSH de forma automatica
 Estratégia para repositórios privados
 Baixar repositorios privados após definir estrategia
 
 Definir limite de memória para cada virtualbox machine (java pode ser 4GB)
-Alterar horario
 Atualizar BOX
 Trocar tema da maquina virtual
 
