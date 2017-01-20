@@ -4,7 +4,7 @@
   when: env == 'ruby'
   become_user: "{{default_user}}"
   git: 
-    repo: https://github.com/richardsbrandao/{{item}}.git
+    repo: git@github.com:richardsbrandao/node.git
     dest: "{{workspace_dir}}/{{item}}"
     update: no
   with_items:

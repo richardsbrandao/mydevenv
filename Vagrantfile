@@ -5,10 +5,12 @@ Vagrant.configure(2) do |config|
   
   config.vm.define "node" do |node|
   	node.vm.box = "ubuntu/trusty64"
+    node.ssh.forward_agent = true
+    node.vm.hostname = 'node.vm'
     
-  	# Apps
-  	node.vm.network "forwarded_port", guest: 9000, host: 9000
-  	node.vm.network "private_network", ip: "192.168.33.20"
+    # Apps
+    node.vm.network "forwarded_port", guest: 9000, host: 9000
+    node.vm.network "private_network", ip: "192.168.33.20"
 
     node.vm.synced_folder "/home/richard/vagrant_sync/node", "/home/vagrant/projects"
 
@@ -19,6 +21,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "ruby" do |ruby|
     ruby.vm.box = "ubuntu/trusty64"
+    ruby.ssh.forward_agent = true
+    ruby.vm.hostname = 'ruby.vm'
     
     # Apps
     ruby.vm.network "forwarded_port", guest: 3000, host: 3000
@@ -33,7 +37,9 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "java" do |java|
     java.vm.box = "ubuntu/trusty64"
-    
+    java.ssh.forward_agent = true
+    java.vm.hostname = 'java.vm'
+
     # Apps
     java.vm.network "forwarded_port", guest: 8080, host: 8080
     java.vm.network "private_network", ip: "192.168.33.22"
@@ -42,7 +48,7 @@ Vagrant.configure(2) do |config|
 
     java.vm.provider "virtualbox" do |vb|
       vb.gui = true
-      vb.memory = "8192"
+      vb.memory = "3072" # 3 GB
     end  
 
     java.vm.provision :ansible do |ansible|
@@ -52,10 +58,12 @@ Vagrant.configure(2) do |config|
   
   config.vm.define "services" do |services|
   	services.vm.box = "ubuntu/trusty64"
-  	
-  	# Mongo
-  	services.vm.network "forwarded_port", guest: 27017, host: 27017
-  	services.vm.network "private_network", ip: "192.168.33.21"
+    services.vm.hostname = 'services.vm'
+    services.ssh.forward_agent = true
+    
+    # Mongo
+    services.vm.network "forwarded_port", guest: 27017, host: 27017
+    services.vm.network "private_network", ip: "192.168.33.21"
 
     services.vm.synced_folder "/home/richard/vagrant_sync/services", "/home/vagrant/services"
 

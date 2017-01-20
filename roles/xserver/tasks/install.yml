@@ -7,6 +7,10 @@
     - virtualbox-guest-dkms 
     - virtualbox-guest-utils 
     - virtualbox-guest-x11
+
+- name: Install theme
+  apt: name={{item}} state=present
+  with_items:
     - gnome-icon-theme-full 
     - tango-icon-theme
 
