@@ -1,36 +1,5 @@
 ---
 
-- name: Remove default ubuntu ruby(1.9)
-  apt:
-    name: ruby
-    state: absent
-
-- name: Check if rvm is already installed
-  stat: 
-    path: "{{home_dir}}/.rvm"
-  register: rvm_dir
-
-- name: Add rvm apt key
-  when: rvm_dir.stat.isdir is not defined
-  apt_key:
-    keyserver: hkp://keys.gnupg.net
-    id: 409B6B1796C275462A1703113804BB82D39DC0E3
-
-- name: Download RVM installation script
-  when: rvm_dir.stat.isdir is not defined
-  become_user: "{{default_user}}"
-  get_url:
-    url: https://get.rvm.io
-    dest: "{{home_dir}}/rvm_install.sh"
-    mode: 0755
-    force_basic_auth: yes
-
-- name: Execute rvm installation
-  when: rvm_dir.stat.isdir is not defined
-  become_user: "{{default_user}}"
-  shell: "{{home_dir}}/rvm_install.sh"
-
-- name: Remove Rvm installation script
-  file: 
-    path: "{{home_dir}}/rvm_install.sh"
-    state: absent
+- include: remove_default_ruby.yml
+- include: rvm_install.yml
+- include: ruby_install.yml

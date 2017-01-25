@@ -1,0 +1,6 @@
+---
+
+- name: Remove default ubuntu ruby(1.9)
+  apt:
+    name: ruby
+    state: absent
