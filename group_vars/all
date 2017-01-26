@@ -1,4 +1,5 @@
 workspace_dir: /home/vagrant/projects
+private_workspace_dir: /home/vagrant/private
 home_dir: /home/vagrant
 default_user: vagrant
 

@@ -5,3 +5,9 @@
     dest: "{{ home_dir }}/.bashrc"
     regexp: ^export WORKSPACE=
     line: export WORKSPACE={{workspace_dir}}
+
+- name: Declare private workspace shortcut in bashrc
+  lineinfile:
+    dest: "{{ home_dir }}/.bashrc"
+    regexp: ^export PRIVATE_WORKSPACE=
+    line: export PRIVATE_WORKSPACE={{private_workspace_dir}}

@@ -29,3 +29,8 @@
 - name: Add sdkman in .bashrc
   lineinfile: dest={{home_dir}}/.bashrc regexp="\/.sdkman/bin\/sdkman\-init\.sh" line='[[ -s "{{home_dir}}/.sdkman/bin/sdkman-init.sh" && ! $(which sdkman-init.sh) ]] && source "{{home_dir}}/.sdkman/bin/sdkman-init.sh"'
   become_user: "{{default_user}}"
+
+- name: Remove sdkman installation script
+  file: 
+    path: "{{home_dir}}/sdk_install.sh"
+    state: absent

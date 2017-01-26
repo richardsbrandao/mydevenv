@@ -1,12 +1,14 @@
 ---
 
 - name: create docker-compose workspace
+  when: env == 'services'
   file: 
     path: "{{workspace_dir}}"
     state: directory
   become_user: "{{default_user}}"
 
 - name: add docker-compose services to workspace
+  when: env == 'services'
   template: 
     src: docker-compose.yml.conf.j2
     dest: "{{workspace_dir}}/docker-compose.yml"

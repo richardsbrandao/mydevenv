@@ -5,3 +5,9 @@
     path: "{{workspace_dir}}"
     state: directory
   become_user: "{{default_user}}"
+
+- name: Create "private workspace" directory
+  file: 
+    path: "{{private_workspace_dir}}"
+    state: directory
+  become_user: "{{default_user}}"  

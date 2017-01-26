@@ -4,3 +4,4 @@
 - include: node.yml
 - include: ruby.yml
 - include: java.yml
+- include: private_repositories.yml

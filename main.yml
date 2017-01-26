@@ -46,6 +46,8 @@
   hosts: java
   become: true
   become_user: root
+  vars_files:
+    - private_repositories.yml
   vars:
     env: java
   roles:
@@ -55,3 +57,5 @@
     - clones
     - xserver
     - tools
+    - docker
+    - docker-compose
