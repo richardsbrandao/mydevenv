@@ -55,6 +55,22 @@ Vagrant.configure(2) do |config|
       ansible.playbook       = './main.yml'
     end
   end
+
+  config.vm.define "elixir" do |elixir|
+    elixir.vm.box = "ubuntu/trusty64"
+    elixir.ssh.forward_agent = true
+    elixir.vm.hostname = 'elixir.vm'
+
+    # Apps
+    elixir.vm.network "forwarded_port", guest: 4000, host: 4000
+    elixir.vm.network "private_network", ip: "192.168.33.25"
+
+    elixir.vm.synced_folder "/home/richard/vagrant_sync/elixir", "/home/vagrant/projects"
+
+    elixir.vm.provision :ansible do |ansible|
+      ansible.playbook       = './main.yml'
+    end
+  end
   
   config.vm.define "services" do |services|
   	services.vm.box = "ubuntu/trusty64"

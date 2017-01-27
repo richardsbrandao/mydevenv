@@ -1,0 +1,27 @@
+---
+
+- name: Download Earlang solutions
+  become_user: "{{default_user}}"
+  get_url:
+    url: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+    dest: "{{home_dir}}/erlang-solutions_1.0_all.deb"
+    mode: 0755
+    force_basic_auth: yes
+
+- name: Install Earlang
+  become_user: root
+  apt: deb="{{home_dir}}/erlang-solutions_1.0_all.deb"
+
+- name: Apt-Get Update (Once a day)
+  apt:
+    update_cache: yes 
+
+- name: Install esl-earlang
+  apt: 
+    name: esl-erlang
+    state: present
+
+- name: Install Elixir
+  apt: 
+    name: elixir
+    state: present

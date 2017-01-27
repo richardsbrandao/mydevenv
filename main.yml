@@ -59,3 +59,13 @@
     - tools
     - docker
     - docker-compose
+
+- name: ELIXIR env configs
+  hosts: elixir
+  become: true
+  become_user: root
+  vars:
+    env: elixir
+  roles:
+    - hostname
+    - elixir
