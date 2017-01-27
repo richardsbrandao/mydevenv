@@ -7,4 +7,3 @@
 - name: Use Ruby 2.3.0 as default
   command: 'bash -lc "rvm use 2.3.0 --default"'
   become_user: "{{default_user}}"
-# {{home_dir}}/.rvm/bin/rvm use 2.3.0
