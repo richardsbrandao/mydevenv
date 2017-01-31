@@ -12,3 +12,4 @@
   template: 
     src: docker-compose.yml.conf.j2
     dest: "{{workspace_dir}}/docker-compose.yml"
+  become_user: "{{default_user}}"

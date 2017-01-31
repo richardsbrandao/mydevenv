@@ -42,6 +42,10 @@ Vagrant.configure(2) do |config|
 
     # Apps
     java.vm.network "forwarded_port", guest: 8080, host: 8080
+    java.vm.network "forwarded_port", guest: 8081, host: 8081
+    java.vm.network "forwarded_port", guest: 8084, host: 8084
+    java.vm.network "forwarded_port", guest: 8983, host: 8983
+
     java.vm.network "private_network", ip: "192.168.33.22"
 
     java.vm.synced_folder "/home/richard/vagrant_sync/java", "/home/vagrant/projects"
@@ -73,12 +77,12 @@ Vagrant.configure(2) do |config|
   end
   
   config.vm.define "services" do |services|
-  	services.vm.box = "ubuntu/trusty64"
+    services.vm.box = "ubuntu/trusty64"
     services.vm.hostname = 'services.vm'
     services.ssh.forward_agent = true
     
-    # Mongo
-    services.vm.network "forwarded_port", guest: 27017, host: 27017
+    services.vm.network "forwarded_port", guest: 15672, host: 15672 # Access http://localhost:15672 to access UI admin
+    services.vm.network "forwarded_port", guest: 3306, host: 3306 # Use MysqlWorkbench or similar to use a UI admin
     services.vm.network "private_network", ip: "192.168.33.21"
 
     services.vm.synced_folder "/home/richard/vagrant_sync/services", "/home/vagrant/services"

@@ -4,16 +4,18 @@ services:
     image: mysql
     environment: 
       MYSQL_ROOT_PASSWORD: herotrip
-      MYSQL_DATABASE: 'superman,thor'
     ports:
-      - "3307:3306"
+      - "3306:3306"
   cassandra:
     image: poklet/cassandra
     command: start
+    ports:
+      - "9042:9042"
   rabbit:
     image: rabbitmq:3-management
     ports:
       - "15672:15672"
+      - "5672:5672"
     environment:
       RABBITMQ_DEFAULT_USER: herotrip
       RABBITMQ_DEFAULT_PASS: herotrip
