@@ -34,6 +34,25 @@ $ sudo apt-get install ansible
 
 All machines comes with Docker, Docker-Compose and Git (with some aliases)
 
+## Setting up
+
+Once the project has been cloned. You can start a machine running:
+
+vagrat up {machine}
+
+where {machine} can be **java, ruby, node, elixir, **or** services**. 
+
+To turn off the machine:
+
+vagrant halt {machine}
+
+To add a new provision setting in a running machine:
+
+vagrant provision {machine}
+
+To enter in a specific machine:
+
+vagrant ssh {machine}
 
 ## X Server
 The java machines comes with a simple XServer, to help you with some IDE.
