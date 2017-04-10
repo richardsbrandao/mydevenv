@@ -1,9 +1,0 @@
----
-
-- name: Clone Java Private Respositories
-  git: 
-    repo: "{{item.repo}}"
-    dest: "{{private_workspace_dir}}/{{item.folder}}"
-    update: no
-  become_user: "{{default_user}}"
-  with_items: "{{repositories.java}}"

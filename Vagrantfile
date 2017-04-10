@@ -42,9 +42,6 @@ Vagrant.configure(2) do |config|
 
     # Apps
     java.vm.network "forwarded_port", guest: 8080, host: 8080
-    java.vm.network "forwarded_port", guest: 8081, host: 8081
-    java.vm.network "forwarded_port", guest: 8084, host: 8084
-    java.vm.network "forwarded_port", guest: 8983, host: 8983
 
     java.vm.network "private_network", ip: "192.168.33.22"
 

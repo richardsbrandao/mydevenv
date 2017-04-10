@@ -17,7 +17,6 @@
   roles:
     - hostname
     - nodejs
-    - clones
 
 - name: SERVICES env configs
   hosts: services
@@ -40,7 +39,6 @@
     - hostname
     - rvm
     - nodejs
-    - clones
 
 - name: JAVA env configs
   hosts: java
@@ -54,7 +52,6 @@
     - hostname
     - java
     - sdkman
-    - clones
     - xserver
     - tools
     - docker
