@@ -28,6 +28,8 @@
     env: services
   roles:
     - hostname
+    - services
+    - nginx
 
 - name: RUBY env configs
   hosts: ruby
@@ -44,8 +46,6 @@
   hosts: java
   become: true
   become_user: root
-  vars_files:
-    - private_repositories.yml
   vars:
     env: java
   roles:
@@ -54,8 +54,6 @@
     - sdkman
     - xserver
     - tools
-    - docker
-    - docker-compose
 
 - name: ELIXIR env configs
   hosts: elixir

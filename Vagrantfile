@@ -14,6 +14,10 @@ Vagrant.configure(2) do |config|
 
     node.vm.synced_folder "/home/richard/vagrant_sync/node", "/home/vagrant/projects"
 
+    node.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024" # 1 GB
+    end
+
   	node.vm.provision :ansible do |ansible|
   	  ansible.playbook       = './main.yml'
   	end
@@ -29,6 +33,10 @@ Vagrant.configure(2) do |config|
     ruby.vm.network "private_network", ip: "192.168.33.23"
 
     ruby.vm.synced_folder "/home/richard/vagrant_sync/ruby", "/home/vagrant/projects"
+
+    ruby.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024" # 1 GB
+    end
 
     ruby.vm.provision :ansible do |ansible|
       ansible.playbook       = './main.yml'
@@ -68,6 +76,10 @@ Vagrant.configure(2) do |config|
 
     elixir.vm.synced_folder "/home/richard/vagrant_sync/elixir", "/home/vagrant/projects"
 
+    elixir.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024" # 1 GB
+    end  
+
     elixir.vm.provision :ansible do |ansible|
       ansible.playbook       = './main.yml'
     end
@@ -80,9 +92,14 @@ Vagrant.configure(2) do |config|
     
     services.vm.network "forwarded_port", guest: 15672, host: 15672 # Access http://localhost:15672 to access UI admin
     services.vm.network "forwarded_port", guest: 3306, host: 3306 # Use MysqlWorkbench or similar to use a UI admin
+    services.vm.network "forwarded_port", guest: 7070, host: 7070 # Nginx
     services.vm.network "private_network", ip: "192.168.33.21"
 
-    services.vm.synced_folder "/home/richard/vagrant_sync/services", "/home/vagrant/services"
+    services.vm.synced_folder "/home/richard/vagrant_sync/services", "/home/vagrant/projects"
+
+    services.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048" # 2 GB
+    end  
 
   	services.vm.provision :ansible do |ansible|
   	  ansible.playbook       = './main.yml'

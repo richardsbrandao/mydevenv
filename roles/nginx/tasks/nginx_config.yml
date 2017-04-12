@@ -1,0 +1,13 @@
+---
+
+- name: Create nginx conf folder
+  file: 
+    path: "{{workspace_dir}}/services_nginx"
+    state: directory
+  become_user: "{{default_user}}" 
+
+- name: Copy config to config folder
+  template: 
+    src: nginx.conf.j2
+    dest: /home/vagrant/projects/services_nginx/nginx.conf
+  become_user: "{{default_user}}"

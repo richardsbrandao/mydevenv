@@ -1,0 +1,5 @@
+---
+
+- include: nginx_config.yml
+- include: nginx_docker.yml
+

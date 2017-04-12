@@ -5,3 +5,4 @@
 - include: etc_hosts.yml
 - include: timezone.yml
 - include: workspace.yml
+- include: remove_apache.yml

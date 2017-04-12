@@ -1,0 +1,17 @@
+worker_processes  1;
+
+events {
+        worker_connections  1024;
+}
+
+http {
+    #    upstream some_context {
+    #            server 192.168.33.23:3000;
+    #    }
+
+    #    server {
+    #            location /context {
+    #                    proxy_pass http://casamento_ruby/;
+    #            }
+    #    }
+}

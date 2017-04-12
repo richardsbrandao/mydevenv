@@ -1,9 +1,9 @@
 ---
 
-- name: Apt-Get Update (Once a day)
+- name: Apt-Get Update (Once a week)
   apt:
     update_cache: yes 
-    cache_valid_time: 86400
+    cache_valid_time: 604800
     
 - name: Apt-Get Upgrade
   apt:

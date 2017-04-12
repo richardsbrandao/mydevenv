@@ -1,0 +1,6 @@
+---
+
+- name: Remove Apache installation
+  apt:
+    name: apache2
+    state: absent

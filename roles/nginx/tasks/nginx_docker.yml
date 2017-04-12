@@ -1,0 +1,10 @@
+---
+
+- name: Exists nginx image
+  shell: "docker images | grep nginx | grep 1.1"
+  register: nginx_exists
+  ignore_errors: true
+
+- name: Pull image if not Exists
+  shell: docker pull nginx:1.11
+  when: nginx_exists.stdout_lines == []
