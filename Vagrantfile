@@ -35,6 +35,7 @@ Vagrant.configure(2) do |config|
     ruby.vm.synced_folder "/home/richard/vagrant_sync/ruby", "/home/vagrant/projects"
 
     ruby.vm.provider "virtualbox" do |vb|
+      vb.customize [ "guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 5000 ]
       vb.memory = "1024" # 1 GB
     end
 
