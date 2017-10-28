@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
     node.vm.network "forwarded_port", guest: 9000, host: 9000
     node.vm.network "private_network", ip: "192.168.33.20"
 
-    node.vm.synced_folder "/home/richard/vagrant_sync/node", "/home/vagrant/projects"
+    node.vm.synced_folder "#{ENV['HOME']}/vagrant_sync/node", "/home/vagrant/projects"
 
     node.vm.provider "virtualbox" do |vb|
       vb.memory = "1024" # 1 GB
@@ -32,7 +32,7 @@ Vagrant.configure(2) do |config|
     ruby.vm.network "forwarded_port", guest: 3000, host: 3000
     ruby.vm.network "private_network", ip: "192.168.33.23"
 
-    ruby.vm.synced_folder "/home/richard/vagrant_sync/ruby", "/home/vagrant/projects"
+    ruby.vm.synced_folder "#{ENV['HOME']}/vagrant_sync/ruby", "/home/vagrant/projects"
 
     ruby.vm.provider "virtualbox" do |vb|
       vb.customize [ "guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 5000 ]
@@ -54,7 +54,7 @@ Vagrant.configure(2) do |config|
 
     java.vm.network "private_network", ip: "192.168.33.22"
 
-    java.vm.synced_folder "/home/richard/vagrant_sync/java", "/home/vagrant/projects"
+    java.vm.synced_folder "#{ENV['HOME']}/vagrant_sync/java", "/home/vagrant/projects"
 
     java.vm.provider "virtualbox" do |vb|
       vb.gui = true
@@ -75,7 +75,7 @@ Vagrant.configure(2) do |config|
     elixir.vm.network "forwarded_port", guest: 4000, host: 4000
     elixir.vm.network "private_network", ip: "192.168.33.25"
 
-    elixir.vm.synced_folder "/home/richard/vagrant_sync/elixir", "/home/vagrant/projects"
+    elixir.vm.synced_folder "#{ENV['HOME']}/vagrant_sync/elixir", "/home/vagrant/projects"
 
     elixir.vm.provider "virtualbox" do |vb|
       vb.memory = "1024" # 1 GB
@@ -96,10 +96,10 @@ Vagrant.configure(2) do |config|
     services.vm.network "forwarded_port", guest: 7070, host: 7070 # Nginx
     services.vm.network "private_network", ip: "192.168.33.21"
 
-    services.vm.synced_folder "/home/richard/vagrant_sync/services", "/home/vagrant/projects"
+    services.vm.synced_folder "#{ENV['HOME']}/vagrant_sync/services", "/home/vagrant/projects"
 
     services.vm.provider "virtualbox" do |vb|
-      vb.memory = "2048" # 2 GB
+      vb.memory = "5072" # 3 GB
     end  
 
   	services.vm.provision :ansible do |ansible|
