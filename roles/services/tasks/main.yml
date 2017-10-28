@@ -7,9 +7,23 @@
     state: directory
   become_user: "{{default_user}}"
 
+- name: add volumes folder to workspace
+  when: env == 'services'
+  file: 
+    path: "{{workspace_dir}}/volumes/logstash"
+    state: directory
+  become_user: "{{default_user}}" 
+
 - name: add docker-compose services to workspace
   when: env == 'services'
   template: 
     src: docker-compose.yml.conf.j2
     dest: "{{workspace_dir}}/docker-compose.yml"
+  become_user: "{{default_user}}"
+
+- name: add docker-compose services to workspace
+  when: env == 'services'
+  template: 
+    src: logstash.conf.conf.j2
+    dest: "{{workspace_dir}}/volumes/logstash/logstash.conf"
   become_user: "{{default_user}}"

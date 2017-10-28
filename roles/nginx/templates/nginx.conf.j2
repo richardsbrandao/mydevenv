@@ -5,13 +5,17 @@ events {
 }
 
 http {
-    #    upstream some_context {
-    #            server 192.168.33.23:3000;
-    #    }
+        upstream cadvisor {
+                server 192.168.33.21:9090;
+        }
 
-    #    server {
-    #            location /context {
-    #                    proxy_pass http://some_context/;
-    #            }
-    #    }
+        server {
+                location /cadvisor {
+                        proxy_pass http://cadvisor/containers/;
+                }
+
+                location /static {
+                		proxy_pass http://cadvisor/static;		
+                }
+        }
 }
