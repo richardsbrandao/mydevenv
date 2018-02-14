@@ -1,0 +1,30 @@
+---
+
+- name: Check if crystal is already installed
+  stat: 
+    path: "/usr/bin/crystal"
+  register: crystal_lang
+
+- name: Apt Key Crystal Lang
+  when: crystal_lang.stat.exists == true
+  apt_key:
+    keyserver: keys.gnupg.net
+    id: 09617FD37CC06B54
+
+- name: Add crystal apt repository
+  when: crystal_lang.stat.exists == true
+  apt_repository:
+    repo: deb https://dist.crystal-lang.org/apt crystal main
+    update_cache: yes
+
+- name: Apt-Get Update
+  when: crystal_lang.stat.exists == true
+  apt:
+    update_cache: yes 
+
+- name: Install crystal
+  when: crystal_lang.stat.exists == true
+  apt: name={{item}} state=present
+  with_items:
+    - crystal
+    - build-essential

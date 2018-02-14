@@ -85,6 +85,26 @@ Vagrant.configure(2) do |config|
       ansible.playbook       = './main.yml'
     end
   end
+
+  config.vm.define "crystal" do |elixir|
+    elixir.vm.box = "ubuntu/trusty64"
+    elixir.ssh.forward_agent = true
+    elixir.vm.hostname = 'crystal.vm'
+
+    # Apps
+    elixir.vm.network "forwarded_port", guest: 3001, host: 3001
+    elixir.vm.network "private_network", ip: "192.168.33.26"
+
+    elixir.vm.synced_folder "#{ENV['HOME']}/vagrant_sync/crystal", "/home/vagrant/projects"
+
+    elixir.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024" # 1 GB
+    end  
+
+    elixir.vm.provision :ansible do |ansible|
+      ansible.playbook       = './main.yml'
+    end
+  end
   
   config.vm.define "services" do |services|
     services.vm.box = "ubuntu/trusty64"

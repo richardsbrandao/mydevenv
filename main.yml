@@ -64,3 +64,13 @@
   roles:
     - hostname
     - elixir
+
+- name: CRYSTAL env configs
+  hosts: crystal
+  become: true
+  become_user: root
+  vars: 
+    env: crystal
+  roles:
+    - hostname
+    - crystal
