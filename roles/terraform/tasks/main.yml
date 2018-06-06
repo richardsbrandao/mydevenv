@@ -1,0 +1,19 @@
+---
+
+- name: Check if terraform is already installed
+  stat: 
+    path: "/usr/bin/terraform"
+  register: terraform_bin
+
+- name: Download and Install Terraform
+  when: terraform_bin.stat.exists == False
+  unarchive:
+    src: "https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip"
+    dest: /usr/bin/
+    remote_src: yes
+
+- name: Remove Terraform zip
+  when: terraform_bin.stat.exists == False
+  file: 
+    path: "{{home_dir}}/terraform.zip"
+    state: absent
