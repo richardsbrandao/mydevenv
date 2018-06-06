@@ -2,3 +2,4 @@
 
 - include: install_java.yml
 - include: update_alternatives.yml
+- include: eclipse.yml

@@ -1,0 +1,14 @@
+---
+
+- name: Check if eclipse is already installed
+  when: env == 'java'
+  stat: 
+    path: "/opt/eclipse"
+  register: eclipse_dir
+
+- name: Download and Install Eclipse Photon JEE
+  when: env == 'java' and (eclipse_dir.stat.isdir is not defined)
+  unarchive:
+    src: http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/photon/RC2/eclipse-jee-photon-RC2-linux-gtk-x86_64.tar.gz
+    dest: /opt
+    remote_src: True

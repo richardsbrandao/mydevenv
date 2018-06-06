@@ -7,9 +7,9 @@
     path: /usr/lib/jvm/java-8-oracle/bin/java
     priority: 1
 
-- name: Update Alternatives Java 9
-  alternatives:
-    link: /usr/bin/java
-    name: java
-    path: /usr/lib/jvm/java-9-oracle/bin/java
-    priority: 2
+# - name: Update Alternatives Java 9
+#   alternatives:
+#     link: /usr/bin/java
+#     name: java
+#     path: /usr/lib/jvm/java-9-oracle/bin/java
+#     priority: 2

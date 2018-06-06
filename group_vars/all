@@ -3,4 +3,4 @@ private_workspace_dir: /home/vagrant/private
 home_dir: /home/vagrant
 default_user: vagrant
 
-nodejs_version: 6.x
+nodejs_version: 8.x

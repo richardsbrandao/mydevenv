@@ -6,7 +6,7 @@
   become_user: root
   roles:
     - so-config
-    - git
+    - so-tools
     - docker
     - docker-compose
   
@@ -30,6 +30,7 @@
     - hostname
     - services
     - nginx
+    - terraform
 
 - name: RUBY env configs
   hosts: ruby
@@ -53,7 +54,6 @@
     - java
     - sdkman
     - xserver
-    - tools
 
 - name: ELIXIR env configs
   hosts: elixir
