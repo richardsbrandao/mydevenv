@@ -4,7 +4,7 @@
 Vagrant.configure(2) do |config|
   
   config.vm.define "node" do |node|
-  	node.vm.box = "ubuntu/trusty64"
+  	node.vm.box = "bento/ubuntu-18.04"
     node.ssh.forward_agent = true
     node.vm.hostname = 'node.vm'
     
@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "ruby" do |ruby|
-    ruby.vm.box = "ubuntu/trusty64"
+    ruby.vm.box = "bento/ubuntu-18.04"
     ruby.ssh.forward_agent = true
     ruby.vm.hostname = 'ruby.vm'
     
@@ -45,7 +45,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "java" do |java|
-    java.vm.box = "ubuntu/trusty64"
+    java.vm.box = "bento/ubuntu-18.04"
     java.ssh.forward_agent = true
     java.vm.hostname = 'java.vm'
 
@@ -67,7 +67,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "elixir" do |elixir|
-    elixir.vm.box = "ubuntu/trusty64"
+    elixir.vm.box = "bento/ubuntu-18.04"
     elixir.ssh.forward_agent = true
     elixir.vm.hostname = 'elixir.vm'
 
@@ -87,7 +87,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "crystal" do |elixir|
-    elixir.vm.box = "ubuntu/trusty64"
+    elixir.vm.box = "bento/ubuntu-18.04"
     elixir.ssh.forward_agent = true
     elixir.vm.hostname = 'crystal.vm'
 
@@ -107,7 +107,7 @@ Vagrant.configure(2) do |config|
   end
   
   config.vm.define "services" do |services|
-    services.vm.box = "ubuntu/trusty64"
+    services.vm.box = "bento/ubuntu-18.04"
     services.vm.hostname = 'services.vm'
     services.ssh.forward_agent = true
     
